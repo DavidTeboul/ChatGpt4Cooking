@@ -53,13 +53,17 @@ def chat_with_assistant(question):
 
 def GPT4Cooking(myProducts):
     questionArray = [
-        "hi",
-        "can you help me to know what I can eat healthy tonight?",
-        "Can I give you a list of ingredients I have for helping you?",
+        "Salut",
+        "Pouvez-vous m'aider à savoir quoi manger de sain ce soir ?",
+        "Est-ce que je peux vous donner une liste d'ingrédients que j'ai pour vous aider ?",
         str(myProducts.values),
-        "I just need some propositions for healthy lunch"
-        "can you try again to propose me please ?",
+        "au moin 5 propositions de repas sains que je pourrais préparer avec cette liste.",
+        "Pouvez-vous me donner des explications sur la façon de la propsition avec le saummon?",
+        "Quel repas est le plus simple et rapide à préparer parmi ces propositions ?",
+        "Plus d'explications si possible",
+        "Super ! Merci beaucoup !"
     ]
+
     for i in range(len(questionArray)):
         chat_with_assistant(questionArray[i])
 
