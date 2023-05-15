@@ -1,41 +1,52 @@
-# ChatGpt4Cooking
-ChatGpt4Cooking is a Python script that demonstrates how to use the OpenAI API to create a chatbot using the GPT-3.5 Turbo model. The chatbot engages in a conversation with the user, generating responses based on the input.
+# GPT4Cooking Chatbot
 
-# Prerequisites
+ GPT4Cooking Chatbot is a Python script that utilizes the OpenAI API and Google Sheets API to create a chatbot using the GPT-3.5 Turbo model. The chatbot engages in a conversation with the user, providing suggestions for healthy meals based on the available ingredients.
 
-Before running this script, make sure you have the following prerequisites:
+## Prerequisites
+ 
+ Before running this script, make sure you have the following prerequisites:
+    Python 3.x installed
+    Required Python libraries: gspread, pandas, openai, oauth2client
+    You can install these dependencies by running the following command:
 
-Python 3.x installed
-    OpenAI Python library (openai) installed (pip install openai)
+### pip install gspread pandas openai oauth2client
 
-Configuration
-    To use the OpenAI API, you need to configure the script with your API credentials. Follow these steps:
+    To use the GPT4Cooking chatbot, you need to configure the script with your API credentials and Google Sheets credentials. Follow these steps:
 
-    Sign up for an account on the OpenAI website.
+    Open gs_credentials.json and replace it with your Google Sheets API credentials file, which you can obtain by creating a service account in the Google Cloud Console.
 
-    Obtain your API key from the OpenAI dashboard.
+    Sign up for an account on the OpenAI website and obtain your API key from the OpenAI dashboard.
 
-    Open the script in a text editor.
+    Open the Python script in a text editor.
 
     Replace the placeholder values with your API key and organization ID in the following section of the code:
 
-# cnmpython 
+python
+    openai.organization = ""
+    openai.api_key = ""
 
-openai.organization = ""
-openai.api_key = ""
+Usage
 
+Make sure the gs_credentials.json file is in the same directory as the Python script.
 
 Open a terminal and navigate to the directory where the script is located.
 
 Run the script using the following command:
 
-python chatbot.py
+python <script_name>.py
 
-Enter your messages in the terminal, and the chatbot will respond with generated text-based completions.
+The chatbot will prompt you with a series of questions and suggestions based on your inputs and the available ingredients stored in the Google Sheets.
 
-The conversation continues until you terminate the script or exit the terminal.
+    Follow the conversation prompts in the terminal and observe the chatbot's responses.
 
-# Customization
-You can modify the behavior of the chatbot by adjusting the parameters in the openai.ChatCompletion.create() method. For example, you can change the temperature, max_tokens, or top_p values to influence the response generation.
+    The conversation continues until the script finishes running or you terminate it manually.
 
-Please note that the script provided is a simple example, and you can expand upon it to incorporate additional functionality or integrate it into a larger project as needed.
+## Customization
+
+    You can modify the behavior of the chatbot by adjusting the parameters in the chat_with_assistant() function. For example, you can change the temperature, max_tokens, or top_p values to influence the response generation.
+
+    Please note that the script provided is a basic example, and you can extend it or modify it to suit your specific requirements. You can integrate additional functionality or improve the chatbot's capabilities as needed.
+
+## Google Sheets Integration
+
+The script connects to Google Sheets to retrieve available ingredients. To use this feature, make sure you have set up the Google Sheets API and have the necessary credentials in the gs_credentials.json file. The script assumes the Google Sheets file is named "GPT4Cooking_data" and the ingredients are stored in the first sheet.

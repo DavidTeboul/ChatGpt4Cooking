@@ -24,7 +24,9 @@ def export_to_sheet():
     # Delete rows with the specific value in the last column
     label_clean_1 = label[label.iloc[:, -1] != '1']
     label_clean_1_2 = label_clean_1[label_clean_1.iloc[:, -1] != '2']
-    products = label_clean_1_2.iloc[:, 0]
+    label_clean_1_2_3 = label_clean_1_2[label_clean_1_2.iloc[:, -1] != '3']
+    label_clean_1_2_3_4 = label_clean_1_2_3[label_clean_1_2_3.iloc[:, -1] != '4']
+    products = label_clean_1_2_3_4.iloc[:, 0]
     # print(products)
     return products
 
@@ -46,17 +48,17 @@ def chat_with_assistant(question):
     assistant_response = response['choices'][0]['message']['content']
     conversation.append({'role': 'assistant', 'content': assistant_response})
     print('\n' + assistant_response + '\n')
-    time.sleep(10)
+    time.sleep(5)
 
 
 def GPT4Cooking(myProducts):
     questionArray = [
         "hi",
-        "can you help me to know what I can eat tonight?",
+        "can you help me to know what I can eat healthy tonight?",
         "Can I give you a list of ingredients I have for helping you?",
         str(myProducts.values),
-        "propose me please ?",
-        "if I want to eat healthy?"
+        "I just need some propositions for healthy lunch"
+        "can you try again to propose me please ?",
     ]
     for i in range(len(questionArray)):
         chat_with_assistant(questionArray[i])
