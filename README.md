@@ -19,7 +19,7 @@ Configuration
 
     Replace the placeholder values with your API key and organization ID in the following section of the code:
 
-# python 
+# cnmpython 
 
 openai.organization = ""
 openai.api_key = ""
