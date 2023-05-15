@@ -4,6 +4,7 @@ import pandas as pd
 import openai
 from oauth2client.service_account import ServiceAccountCredentials
 from openai import ChatCompletion
+import time
 
 
 def export_to_sheet():
@@ -11,7 +12,7 @@ def export_to_sheet():
     scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
     credentials = ServiceAccountCredentials.from_json_keyfile_name('gs_credentials.json', scope)
     client = gspread.authorize(credentials)
-    print(credentials)
+    # print(credentials)
     # Open the spreadsheet
     sheet = client.open('GPT4Cooking_data').sheet1
     # Get all values from the worksheet
@@ -24,33 +25,43 @@ def export_to_sheet():
     label_clean_1 = label[label.iloc[:, -1] != '1']
     label_clean_1_2 = label_clean_1[label_clean_1.iloc[:, -1] != '2']
     products = label_clean_1_2.iloc[:, 0]
-    print(products)
+    # print(products)
     return products
 
 
-def chat_with_assistant():
+def chat_with_assistant(question):
     openai.organization = "org-1Wig5szKzDYWI9tUmk1nfBES"
     openai.api_key = "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"
-
     conversation = [{'role': 'system', 'content': 'You are a helpful assistant.'}]
+    print('\n' + question + '\n')
+    conversation.append({'role': 'user', 'content': question})
+    response = ChatCompletion.create(
+        model='gpt-3.5-turbo',
+        messages=conversation,
+        temperature=2,
+        max_tokens=250,
+        top_p=0.9
+    )
 
-    while True:
-        user_input = input('')
-        conversation.append({'role': 'user', 'content': user_input})
+    assistant_response = response['choices'][0]['message']['content']
+    conversation.append({'role': 'assistant', 'content': assistant_response})
+    print('\n' + assistant_response + '\n')
+    time.sleep(10)
 
-        response = ChatCompletion.create(
-            model='gpt-3.5-turbo',
-            messages=conversation,
-            temperature=2,
-            max_tokens=250,
-            top_p=0.9
-        )
 
-        assistant_response = response['choices'][0]['message']['content']
-        conversation.append({'role': 'assistant', 'content': assistant_response})
-        print('\n' + assistant_response + '\n')
+def GPT4Cooking(myProducts):
+    questionArray = [
+        "hi",
+        "can you help me to know what I can eat tonight?",
+        "Can I give you a list of ingredients I have for helping you?",
+        str(myProducts.values),
+        "propose me please ?",
+        "if I want to eat healthy?"
+    ]
+    for i in range(len(questionArray)):
+        chat_with_assistant(questionArray[i])
+
 
 if __name__ == '__main__':
     myProducts = export_to_sheet()
-    print("My products : ",myProducts.values)
-    chat_with_assistant()
+    GPT4Cooking(myProducts)
