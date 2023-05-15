@@ -54,3 +54,18 @@ To use the GPT4Cooking chatbot, you need to configure the script with your API c
 - The script connects to Google Sheets to retrieve available ingredients. To use this feature, make sure you have set up the Google Sheets API and have the necessary credentials in the gs_credentials.json file. The script assumes the Google Sheets file is named "GPT4Cooking_data" and the ingredients are stored in the first sheet.
 
  ```python
+
+ d["- Une salade de poulet grillé avec des légumes verts, des tomates cerises, des noix et une vinaigrette légère
+, Des poivrons farcis au quinoa et aux légumes
+, Des crevettes sautées avec des légumes variés et du riz brun
+. Des tacos au poisson grillé avec de la laitue, de la salsa maison et de l'avocat
+- Une omelette aux épinards et aux champignons accompagnée d'une tranche de pain complet grillé.
+"]
+
+Bien sûr, voici cinq propositions de repas sains que vous pourriez préparer avec la liste d'ingrédients :
+
+1. Salade de quinoa aux épinards et légumes rôtis : cuisez le quinoa selon les instructions du paquet et faites rôtir des légumes tels que les poivrons, les courgettes et les oignons au four. Mélangez le quinoa avec les légumes rôtis, des épinards frais, du vinaigre balsamique et de l'huile d'olive pour une salade nutritive.
+
+2. Soupe de légumes : faites cuire les carottes, les pommes de terre et les poireaux dans du bouillon de légumes. Ajoutez ensuite des lentilles, des tomates en dés, du céleri et de l'ail. Laissez mijoter jusqu'à ce que les légumes soient tendres, puis servez chaud.
+
+3. Poisson grillé avec légumes vapeur : grillez un filet de poisson blanc ou de saumon et accompagnez-le de légumes frais

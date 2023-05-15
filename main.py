@@ -5,6 +5,8 @@ import openai
 from oauth2client.service_account import ServiceAccountCredentials
 from openai import ChatCompletion
 import time
+import webbrowser
+from base64 import b64decode
 
 
 def export_to_sheet():
@@ -49,6 +51,25 @@ def chat_with_assistant(question):
     conversation.append({'role': 'assistant', 'content': assistant_response})
     print('\n' + assistant_response + '\n')
     time.sleep(5)
+    return assistant_response
+
+
+def GPT4_GenerateImage(prompt, image_count):
+    openai.organization = "org-1Wig5szKzDYWI9tUmk1nfBES"
+    openai.api_key = "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"
+    images = []
+    response = openai.Image.create(
+        prompt=prompt,
+        n=image_count,
+        size='512x512',
+        response_format='b64_json',
+    )
+    for image in response['data']:
+        images.append(image.b64_json)
+    prefix = 'Img'
+    for index, image in enumerate(images):
+        with open(f'{prefix}_{index}.jpg', 'wb') as file:
+            file.write(b64decode(image))
 
 
 def GPT4Cooking(myProducts):
@@ -63,11 +84,20 @@ def GPT4Cooking(myProducts):
         "Plus d'explications si possible",
         "Super ! Merci beaucoup !"
     ]
-
     for i in range(len(questionArray)):
         chat_with_assistant(questionArray[i])
 
 
+#   for i in range(len(questionArray)):
+#     if questionArray[i]== 'au moin 5 propositions de repas sains que je pourrais préparer avec cette liste.':
+#         chat_with_assistant(questionArray[i])
+#    else:
+#       chat_with_assistant(questionArray[i])
+
 if __name__ == '__main__':
-    myProducts = export_to_sheet()
-    GPT4Cooking(myProducts)
+    # myProducts = export_to_sheet()
+    # GPT4Cooking(myProducts)
+    # GPT4_GenerateImage('smoke montain', image_count=1)
+    # d='Salade de poulet grillé avec des légumes verts mélangés, des noix, des fruits frais et une vinaigrette légère.'
+    c = ' Poisson grillé avec légumes vapeur : '
+    GPT4_GenerateImage(c, image_count=5)
