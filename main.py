@@ -22,8 +22,8 @@ def export_to_sheet():
     values = sheet.get_all_values()
     # Create a DataFrame from the values
     df = pd.DataFrame(values[1:], columns=values[0])
-    column_quantite = 'Quantite'  # Specify the name of the column you want to delete
-    label = df.drop(column_quantite, axis=1)
+    column_quantity = 'Quantite'  # Specify the name of the column you want to delete
+    label = df.drop(column_quantity, axis=1)
     # Delete rows with the specific value in the last column
     label_clean_1 = label[label.iloc[:, -1] != '1']
     label_clean_1_2 = label_clean_1[label_clean_1.iloc[:, -1] != '2']
@@ -50,7 +50,7 @@ def chat_with_assistant(question):
     assistant_response = response['choices'][0]['message']['content']
     conversation.append({'role': 'assistant', 'content': assistant_response})
     print('\n' + assistant_response + '\n')
-    time.sleep(10)
+    time.sleep(20)
     return assistant_response
 
 
@@ -68,31 +68,33 @@ def GPT4_GenerateImage(prompt, image_count, i):
         images.append(image.b64_json)
     prefix = 'Img'
     for index, image in enumerate(images):
-        with open(f'{prefix}_{i}.jpg', 'wb') as file:
+        with open(f'{prefix}_{i}_{prompt}.jpg', 'wb') as file:
             file.write(b64decode(image))
-    time.sleep(5)
+    time.sleep(10)
 
 
 def GPT4_GenerateImage_Cooking(responses_Image):
-    print(responses_Image)
-    print("GPT4_GenerateImage_Cooking")
+    print('\n')
+    print('\n')
+    print("Attendez, je génère un aperçu .....")
+    print('\n')
     for j in range(2, len(responses_Image) - 1):
-        print(responses_Image[j])
+        print(responses_Image[j], "......")
         GPT4_GenerateImage((responses_Image[j]), 1, j)
+    exit(0)
 
 
 def GPT4Cooking(my_products, response):
+    question_Before_List = "J'ai juste besoin de quelques idées de repas à faire avec la liste que je t'ai donnée. (sans me donner d'explications sur la preparation)"
     questionArray = [
         "Salut",
         "Pouvez-vous me donner 5 repas sains que je peux me faire pour ce soir suivant une liste de produits que j'ai ?",
         str(my_products.values),
-        "J'ai juste besoin de quelques idées de repas à faire avec la liste que je t'ai donnée. (sans me donner d'explications sur la preparation)",
+        question_Before_List,
         "Super ! Merci beaucoup !"
     ]
     for i in range(len(questionArray)):
-        if questionArray[
-            i] == "J'ai juste besoin de quelques idées de repas à faire avec la liste que je t'ai donnée. (sans me donner d'explications sur la preparation)":
-            print(1)
+        if questionArray[i] == question_Before_List:
             array_elements = chat_with_assistant(questionArray[i]).split("\n")
             response = array_elements
         else:
@@ -105,6 +107,3 @@ if __name__ == '__main__':
     myProducts = export_to_sheet()
     responses = GPT4Cooking(myProducts, responses)
     GPT4_GenerateImage_Cooking(responses)
-# d='Salade de poulet grillé avec des légumes verts mélangés, des noix, des fruits frais et une vinaigrette légère.'
-# c = ' Poisson grillé avec légumes vapeur : '
-# GPT4_GenerateImage(c, image_count=5)
