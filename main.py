@@ -1,5 +1,6 @@
 import os
 import gspread
+import numpy as np
 import pandas as pd
 import openai
 from oauth2client.service_account import ServiceAccountCredentials
@@ -46,15 +47,14 @@ def chat_with_assistant(question):
         max_tokens=250,
         top_p=0.9
     )
-
     assistant_response = response['choices'][0]['message']['content']
     conversation.append({'role': 'assistant', 'content': assistant_response})
     print('\n' + assistant_response + '\n')
-    time.sleep(5)
+    time.sleep(10)
     return assistant_response
 
 
-def GPT4_GenerateImage(prompt, image_count):
+def GPT4_GenerateImage(prompt, image_count, i):
     openai.organization = "org-1Wig5szKzDYWI9tUmk1nfBES"
     openai.api_key = "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"
     images = []
@@ -68,36 +68,43 @@ def GPT4_GenerateImage(prompt, image_count):
         images.append(image.b64_json)
     prefix = 'Img'
     for index, image in enumerate(images):
-        with open(f'{prefix}_{index}.jpg', 'wb') as file:
+        with open(f'{prefix}_{i}.jpg', 'wb') as file:
             file.write(b64decode(image))
+    time.sleep(5)
 
 
-def GPT4Cooking(myProducts):
+def GPT4_GenerateImage_Cooking(responses_Image):
+    print(responses_Image)
+    print("GPT4_GenerateImage_Cooking")
+    for j in range(2, len(responses_Image) - 1):
+        print(responses_Image[j])
+        GPT4_GenerateImage((responses_Image[j]), 1, j)
+
+
+def GPT4Cooking(my_products, response):
     questionArray = [
         "Salut",
-        "Pouvez-vous m'aider à savoir quoi manger de sain ce soir ?",
-        "Est-ce que je peux vous donner une liste d'ingrédients que j'ai pour vous aider ?",
-        str(myProducts.values),
-        "au moin 5 propositions de repas sains que je pourrais préparer avec cette liste.",
-        "Pouvez-vous me donner des explications sur la façon de la propsition avec le saummon?",
-        "Quel repas est le plus simple et rapide à préparer parmi ces propositions ?",
-        "Plus d'explications si possible",
+        "Pouvez-vous me donner 5 repas sains que je peux me faire pour ce soir suivant une liste de produits que j'ai ?",
+        str(my_products.values),
+        "J'ai juste besoin de quelques idées de repas à faire avec la liste que je t'ai donnée. (sans me donner d'explications sur la preparation)",
         "Super ! Merci beaucoup !"
     ]
     for i in range(len(questionArray)):
-        chat_with_assistant(questionArray[i])
+        if questionArray[
+            i] == "J'ai juste besoin de quelques idées de repas à faire avec la liste que je t'ai donnée. (sans me donner d'explications sur la preparation)":
+            print(1)
+            array_elements = chat_with_assistant(questionArray[i]).split("\n")
+            response = array_elements
+        else:
+            chat_with_assistant(questionArray[i])
+    return response
 
-
-#   for i in range(len(questionArray)):
-#     if questionArray[i]== 'au moin 5 propositions de repas sains que je pourrais préparer avec cette liste.':
-#         chat_with_assistant(questionArray[i])
-#    else:
-#       chat_with_assistant(questionArray[i])
 
 if __name__ == '__main__':
-    # myProducts = export_to_sheet()
-    # GPT4Cooking(myProducts)
-    # GPT4_GenerateImage('smoke montain', image_count=1)
-    # d='Salade de poulet grillé avec des légumes verts mélangés, des noix, des fruits frais et une vinaigrette légère.'
-    c = ' Poisson grillé avec légumes vapeur : '
-    GPT4_GenerateImage(c, image_count=5)
+    responses = np.array([])
+    myProducts = export_to_sheet()
+    responses = GPT4Cooking(myProducts, responses)
+    GPT4_GenerateImage_Cooking(responses)
+# d='Salade de poulet grillé avec des légumes verts mélangés, des noix, des fruits frais et une vinaigrette légère.'
+# c = ' Poisson grillé avec légumes vapeur : '
+# GPT4_GenerateImage(c, image_count=5)

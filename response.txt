@@ -1,3 +1,27 @@
+ questionArray = [
+        "Salut",
+        "Pouvez-vous m'aider à savoir quoi manger de sain ce soir ?",
+        "Est-ce que je peux vous donner une liste d'ingrédients que j'ai pour vous aider ?",
+        str(myProducts.values),
+        "au moin 5 propositions de repas sains que je pourrais préparer avec cette liste.",
+        "Pouvez-vous me donner des explications sur la façon de la propsition avec le saummon?",
+        "Quel repas est le plus simple et rapide à préparer parmi ces propositions ?",
+        "Plus d'explications si possible",
+        "Super ! Merci beaucoup !"
+    ]
+
+
+     questionArray = [
+        "Salut",
+        "Pouvez-vous me donner 5 repas sains que je peux me faire pour ce soir suivant une liste de produits que j'ai ?",
+        str(my_products.values),
+        "J'ai juste besoin de quelques idées de repas à faire avec la liste que je t'ai donnée. (sans me donner d'explications sur la preparation)",
+        "Pouvez-vous me donner des explications sur la façon de préparer le saumon ?",
+        "Quel repas est le plus simple et rapide à préparer parmi ces propositions ?",
+        "Plus d'explications si possible.",
+        "Super ! Merci beaucoup !"
+    ]
+
 /usr/local/bin/python3.11 /Users/david/Documents/GitHub/ChatGpt4Cooking/main.py
 
 Salut
