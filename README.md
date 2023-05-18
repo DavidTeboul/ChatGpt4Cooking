@@ -54,18 +54,21 @@ To use the GPT4Cooking chatbot, you need to configure the script with your API c
 - The script connects to Google Sheets to retrieve available ingredients. To use this feature, make sure you have set up the Google Sheets API and have the necessary credentials in the gs_credentials.json file. The script assumes the Google Sheets file is named "GPT4Cooking_data" and the ingredients are stored in the first sheet.
 
  ```python
+ 
+This project is designed to help with cooking-related tasks. It uses different libraries and tools to perform various functions:
 
- d["- Une salade de poulet grillé avec des légumes verts, des tomates cerises, des noix et une vinaigrette légère
-, Des poivrons farcis au quinoa et aux légumes
-, Des crevettes sautées avec des légumes variés et du riz brun
-. Des tacos au poisson grillé avec de la laitue, de la salsa maison et de l'avocat
-- Une omelette aux épinards et aux champignons accompagnée d'une tranche de pain complet grillé.
-"]
+Connecting to Google Sheets: The project connects to Google Sheets to access and retrieve data from specific worksheets.
 
-Bien sûr, voici cinq propositions de repas sains que vous pourriez préparer avec la liste d'ingrédients :
+Data Manipulation: The retrieved data is organized and cleaned using a library called pandas. This helps to prepare the data for further analysis.
 
-1. Salade de quinoa aux épinards et légumes rôtis : cuisez le quinoa selon les instructions du paquet et faites rôtir des légumes tels que les poivrons, les courgettes et les oignons au four. Mélangez le quinoa avec les légumes rôtis, des épinards frais, du vinaigre balsamique et de l'huile d'olive pour une salade nutritive.
+Chatting with the Assistant: The project uses a powerful language model called GPT-3.5 Turbo to engage in conversations. Users can ask questions or provide prompts, and the model responds with helpful information.
 
-2. Soupe de légumes : faites cuire les carottes, les pommes de terre et les poireaux dans du bouillon de légumes. Ajoutez ensuite des lentilles, des tomates en dés, du céleri et de l'ail. Laissez mijoter jusqu'à ce que les légumes soient tendres, puis servez chaud.
+Image Generation: The project can generate image previews based on certain prompts. These images can provide visual representations of the cooking ideas or concepts discussed.
 
-3. Poisson grillé avec légumes vapeur : grillez un filet de poisson blanc ou de saumon et accompagnez-le de légumes frais
+Meal Suggestions: By providing a list of available ingredients or products, the project can suggest meal ideas for users. This can help with meal planning and deciding what to cook.
+
+Meal Planning: Users can input a list of meals they want to include in their weekly plan, and the project can provide a meal schedule based on that input.
+
+The project presents a user-friendly menu with different options, allowing users to export data to Google Sheets, receive meal suggestions and plans, generate image previews, engage in chat conversations, or exit the program.
+
+Overall, this project aims to make cooking tasks easier by leveraging technology and intelligent algorithms to provide assistance and ideas.

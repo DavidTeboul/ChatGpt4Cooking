@@ -6,7 +6,11 @@ import time
 from oauth2client.service_account import ServiceAccountCredentials
 from openai import ChatCompletion
 from base64 import b64decode
+import os
+from dotenv import load_dotenv
 
+
+# Access the environment variables
 
 def myProducts_to_sheet():
     # Connect to Google Sheets
@@ -51,8 +55,6 @@ def myPlanning_to_sheet():
 
 
 def chat_with_assistant_question(question):
-    openai.organization = "org-1Wig5szKzDYWI9tUmk1nfBES"
-    openai.api_key = "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"
     conversation = [{'role': 'system', 'content': 'You are a helpful assistant.'}]
     print('\n' + question + '\n')
     conversation.append({'role': 'user', 'content': question})
@@ -71,11 +73,7 @@ def chat_with_assistant_question(question):
 
 
 def chat_with_assistant_input():
-    openai.organization = "org-1Wig5szKzDYWI9tUmk1nfBES"
-    openai.api_key = "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"
-
     conversation = [{'role': 'system', 'content': 'You are a helpful assistant.'}]
-
     while True:
         user_input = input("You: ")
         conversation.append({'role': 'user', 'content': user_input})
@@ -96,8 +94,6 @@ def chat_with_assistant_input():
 
 
 def GPT4_GenerateImage(prompt, image_count, i):
-    openai.organization = "org-1Wig5szKzDYWI9tUmk1nfBES"
-    openai.api_key = "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"
     images = []
     response = openai.Image.create(
         prompt=prompt,
@@ -159,6 +155,10 @@ def GPT4_Planning(my_planning, response):
 
 
 if __name__ == '__main__':
+    # Load the environment variables from the .env file
+    load_dotenv()
+    openai.organization = os.getenv("OPENAI_API_ORGANISATION")
+    openai.api_key = os.getenv("OPENAI_API_KEY")
     responses_products = np.array([])
     responses_planning = np.array([])
     while True:
