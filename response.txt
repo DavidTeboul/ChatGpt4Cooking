@@ -1,0 +1,113 @@
+ questionArray = [
+        "Salut",
+        "Pouvez-vous m'aider à savoir quoi manger de sain ce soir ?",
+        "Est-ce que je peux vous donner une liste d'ingrédients que j'ai pour vous aider ?",
+        str(myProducts.values),
+        "au moin 5 propositions de repas sains que je pourrais préparer avec cette liste.",
+        "Pouvez-vous me donner des explications sur la façon de la propsition avec le saummon?",
+        "Quel repas est le plus simple et rapide à préparer parmi ces propositions ?",
+        "Plus d'explications si possible",
+        "Super ! Merci beaucoup !"
+    ]
+
+
+     questionArray = [
+        "Salut",
+        "Pouvez-vous me donner 5 repas sains que je peux me faire pour ce soir suivant une liste de produits que j'ai ?",
+        str(my_products.values),
+        "J'ai juste besoin de quelques idées de repas à faire avec la liste que je t'ai donnée. (sans me donner d'explications sur la preparation)",
+        "Pouvez-vous me donner des explications sur la façon de préparer le saumon ?",
+        "Quel repas est le plus simple et rapide à préparer parmi ces propositions ?",
+        "Plus d'explications si possible.",
+        "Super ! Merci beaucoup !"
+    ]
+
+/usr/local/bin/python3.11 /Users/david/Documents/GitHub/ChatGpt4Cooking/main.py
+
+Salut
+
+
+Bonjour! Comment puis-je vous aider aujourd'hui?
+
+
+Pouvez-vous m'aider à savoir quoi manger de sain ce soir ?
+
+
+Bien sûr ! Voici quelques suggestions de dîner sain:
+
+- Une salade de poulet grillé avec des légumes verts, des tomates cerises, des noix et une vinaigrette légère
+- Des poivrons farcis au quinoa et aux légumes
+- Des crevettes sautées avec des légumes variés et du riz brun
+- Des tacos au poisson grillé avec de la laitue, de la salsa maison et de l'avocat
+- Une omelette aux épinards et aux champignons accompagnée d'une tranche de pain complet grillé.
+
+N'oubliez pas de choisir des ingrédients frais et de saison pour maximiser la valeur nutritionnelle de votre repas. Bon appétit !
+
+
+Est-ce que je peux vous donner une liste d'ingrédients que j'ai pour vous aider ?
+
+
+Bien sûr, je suis là pour vous aider avec votre cuisine. Envoyez-moi la liste d'ingrédients et je serai heureux de vous donner des idées de recettes.
+
+
+['Ail ' 'Amandes ' 'Avocat' 'Bananes' 'Barres cereales '
+ 'Basilic cube congelés ' 'Brocolis' 'Fromage symphonia 5%' 'Celeri'
+ 'Champignons en boite' 'fromage blanc' 'Charcuterie' 'Coeur de palmier '
+ 'Courgettes vertes foncees' 'Cosbore' 'Carottes ' 'Champignons gros'
+ 'Concombres ' 'Galettes de riz nature' 'Fenouils ' 'Haricots verts'
+ "Lait d'amande" 'Lait normal ' 'Mais ' 'soupe champignon' 'Noix '
+ 'Jus de citron ' 'Oignon cube surgelee' 'Oeufs ' 'Oignons' 'Pain complet'
+ 'Pates completes' 'Petits pois' 'Petrousilia ' 'Poivrons rouges'
+ 'Pommes de terre ' 'Pommes ' 'Riz blanc ' 'Pommes de terre douces '
+ 'Salade verte ' 'steak haché ' "Thon a l'huile " "Thon a l'eau "
+ 'Tomates cerises ' 'bourata ']
+
+
+How can I assist you with these food items?
+
+
+au moin 5 propositions de repas sains que je pourrais préparer avec cette liste.
+
+
+Bien sûr, voici cinq propositions de repas sains que vous pourriez préparer avec la liste d'ingrédients :
+
+1. Salade de quinoa aux épinards et légumes rôtis : cuisez le quinoa selon les instructions du paquet et faites rôtir des légumes tels que les poivrons, les courgettes et les oignons au four. Mélangez le quinoa avec les légumes rôtis, des épinards frais, du vinaigre balsamique et de l'huile d'olive pour une salade nutritive.
+
+2. Soupe de légumes : faites cuire les carottes, les pommes de terre et les poireaux dans du bouillon de légumes. Ajoutez ensuite des lentilles, des tomates en dés, du céleri et de l'ail. Laissez mijoter jusqu'à ce que les légumes soient tendres, puis servez chaud.
+
+3. Poisson grillé avec légumes vapeur : grillez un filet de poisson blanc ou de saumon et accompagnez-le de légumes frais
+
+
+Pouvez-vous me donner des explications sur la façon de la propsition avec le saummon?
+
+
+Bien sûr! Si vous souhaitez faire une proposition avec du saumon, vous pouvez opter pour plusieurs types de plats différents:
+
+1. Une assiette de saumon fumé: Vous pouvez proposer à votre invité une assiette de saumon fumé accompagné de quelques tranches de pain grillé, d'un peu de beurre et de câpres. Vous pouvez également ajouter des garnitures comme de l'aneth ou du citron pour un peu plus de saveur.
+
+2. Des filets de saumon grillé: Si vous préférez servir un plat chaud, vous pouvez griller des filets de saumon et les servir avec des légumes rôtis, du riz ou des pommes de terre rissolées. Vous pouvez également ajouter une sauce comme une sauce à l'aneth ou une sauce au citron pour plus de saveur.
+
+3. Des sushis au saumon: Si vous cherchez à proposer quelque chose de plus exotique, vous pouvez servir des sushis au saumon. Vous pouvez acheter du saumon frais et le préparer en sashimi (
+
+
+Quel repas est le plus simple et rapide à préparer parmi ces propositions ?
+
+
+Parmi ces propositions, la salade est généralement la plus simple et rapide à préparer. Il suffit de couper les légumes, de les laver et de les mélanger avec une vinaigrette. Les pâtes sont également assez faciles et rapides à préparer, mais elles nécessitent de faire cuire l'eau et les pâtes avant de les assaisonner. Les soupes et les ragoûts prennent souvent plus de temps à cuire.
+
+
+Plus d'explications si possible
+
+
+Bien sûr ! En tant qu'assistant, je suis là pour fournir de l'aide et des conseils pour répondre à vos questions ou résoudre vos problèmes. Cela peut inclure la fourniture d'informations sur un sujet, la présentation de différentes options pour résoudre un problème, l'aide à la prise de décision, la suggestion de ressources utiles, la clarification des instructions ou la démonstration de l'utilisation d'un produit ou d'un service.
+
+Mon rôle en tant qu'assistant est de simplifier et d'améliorer votre expérience, de vous permettre d'accomplir vos tâches plus efficacement et de vous aider à atteindre vos objectifs. Je suis également ici pour vous fournir un soutien émotionnel ou mental, si nécessaire, et pour répondre à toute autre question ou préoccupation que vous pourriez avoir.
+
+
+Super ! Merci beaucoup !
+
+
+De rien ! Comment puis-je vous aider ?
+
+
+Process finished with exit code 0
