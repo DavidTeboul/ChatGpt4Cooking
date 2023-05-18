@@ -23,10 +23,7 @@ To use the GPT4Cooking chatbot, you need to configure the script with your API c
 
 3. Open the Python script in a text editor.
 
-4. Replace the placeholder values with your API key and organization ID in the following section of the code:
 
- openai.organization = "org-1Wig5szKzDYWI9tUmk1nfBES"
- openai.api_key = "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"
 
 
 ## Usage
