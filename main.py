@@ -10,8 +10,6 @@ import os
 from dotenv import load_dotenv
 
 
-# Access the environment variables
-
 def myProducts_to_sheet():
     # Connect to Google Sheets
     scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
@@ -55,7 +53,7 @@ def myPlanning_to_sheet():
 
 
 def chat_with_assistant_question(question):
-    conversation = [{'role': 'system', 'content': 'You are a helpful assistant.'}]
+    conversation = [{'role': 'system', 'content': 'Tu es un chef cuisinier healthy qui prepare du manger kosher.'}]
     print('\n' + question + '\n')
     conversation.append({'role': 'user', 'content': question})
     response = ChatCompletion.create(

@@ -25,6 +25,7 @@ To use the GPT4Cooking chatbot, you need to configure the script with your API c
 
 
 
+
 ## Usage
 
 1. Make sure the gs_credentials.json file is in the same directory as the Python script.
