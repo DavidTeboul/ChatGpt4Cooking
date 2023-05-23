@@ -66,7 +66,7 @@ def chat_with_assistant_question(question):
     assistant_response = response['choices'][0]['message']['content']
     conversation.append({'role': 'assistant', 'content': assistant_response})
     print('\n' + assistant_response + '\n')
-    time.sleep(10)
+   # time.sleep(10)
     return assistant_response
 
 
@@ -88,7 +88,7 @@ def chat_with_assistant_input():
         conversation.append({'role': 'assistant', 'content': assistant_response})
 
         print("Assistant:", assistant_response)
-        time.sleep(10)
+     #   time.sleep(10)
 
 
 def GPT4_GenerateImage(prompt, image_count, i):
@@ -105,7 +105,7 @@ def GPT4_GenerateImage(prompt, image_count, i):
     for index, image in enumerate(images):
         with open(f'{prefix}_{i}_{prompt}.jpg', 'wb') as file:
             file.write(b64decode(image))
-    time.sleep(10)
+  #  time.sleep(10)
 
 
 def GPT4_GenerateImage_Cooking(responses_Image):
